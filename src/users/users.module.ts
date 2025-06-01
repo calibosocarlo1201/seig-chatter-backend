@@ -10,6 +10,7 @@ import { Users, UserEntity  } from './entities/user.entity';
     { name: Users.name, schema: UserEntity }
   ])],
   providers: [UsersResolver, UsersService, UsersRepository],
+  exports: [UsersService],
 })
 
 export class UsersModule {}
