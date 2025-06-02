@@ -6,6 +6,7 @@ import { UsersModule } from 'src/users/users.module';
 import { AuthController } from './auth.controller';
 import { JwtModule } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
+import { JwtStrategy } from './strategies/jwt.strategy';
 
 @Module({
   imports: [UsersModule, JwtModule.registerAsync({
@@ -17,6 +18,7 @@ import { ConfigService } from '@nestjs/config';
     }),
     inject: [ConfigService],
   })], // Imports from every Modules, para makuha yung mga exports from it.
-  providers: [AuthService, LocalStrategy], controllers: [AuthController]
+  providers: [AuthService, LocalStrategy, JwtStrategy], 
+  controllers: [AuthController]
 })
 export class AuthModule {}
