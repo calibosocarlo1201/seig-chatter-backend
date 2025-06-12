@@ -34,4 +34,11 @@ export class AuthService {
             throw error
         }
     }
+
+    logout(response: Response){
+        response.cookie('Authentication', '', {
+            httpOnly: true,
+            expires: new Date()
+        })
+    }
 }
